@@ -61,7 +61,7 @@ class np2df3(object):
         Pads array with zeros on each dimension to take care of edge effects
         '''
         self.padded_size = self.origsize + 2
-        self.pad = np.zeros(self.padded_size)
+        self.pad = np.zeros(self.padded_size, dtype=self.t)
         self.pad[1:-1, 1:-1, 1:-1] = self.arr
 
     def to_dt(self):
@@ -70,13 +70,13 @@ class np2df3(object):
         values that use the entire range of that data type.
         '''
         _maxval = 2**self.dt - 1
-        self.pad = (self.pad * _maxval).astype(self.t)
+        self.arr = (self.arr * _maxval).astype(self.t)
 
     def export(self):
         self.check_dim()
         self.norm_arr()
-        self.pad_arr()
         self.to_dt()
+        self.pad_arr()
         with open(self.outname, 'wb') as f:
             self.padded_size[::-1].astype('>u2').tofile(f)
             self.pad.tofile(f)

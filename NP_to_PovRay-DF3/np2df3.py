@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -----------------------------------------------------------------------------
 # Written by Leonid Bloch (c) 2016
 # Distributed under GPLv2

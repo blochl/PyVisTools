@@ -22,4 +22,4 @@ read from an HDF5 file, although this can easily be changed.
 
 ## Licensing
 
-Distributed under GPLv2.
+Distributed under GPLv2. You can find the full license text [here](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
